@@ -8,11 +8,16 @@ class GamesGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Center(
-        child: GridView.count(mainAxisSpacing: 12, crossAxisSpacing: 12,  crossAxisCount: 2, children: games.map((game) => GameCard(game: game)).toList(),),
+    return Center(
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.95,
+        child: Padding(
+        padding: const EdgeInsets.only(top: 12, bottom: 12),
+        child: Center(
+          child: GridView.count(mainAxisSpacing: 12, crossAxisSpacing: 12,  crossAxisCount: 2, children: games.map((game) => GameCard(game: game)).toList(),),
+        ),
       ),
+      )
     );
   }
 }
