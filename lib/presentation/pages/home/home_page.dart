@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:games_list_app/data/repositories/games_repository.dart';
+import 'package:games_list_app/presentation/widgets/games_grid.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +21,11 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: Container(),
+      body: Consumer<GamesRepository>(
+        builder: (context, repository, child) => repository.games.isEmpty
+            ? const Center(child: CircularProgressIndicator())
+            : GamesGrid(games: repository.games),
+      ),
     );
   }
 }

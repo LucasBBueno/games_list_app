@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:games_list_app/data/repositories/games_repository.dart';
 import 'package:games_list_app/presentation/pages/home/home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => GamesRepository(),
+      )
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
