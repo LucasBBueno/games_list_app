@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Games List",
+          "Top Games",
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Theme.of(context).primaryColor,

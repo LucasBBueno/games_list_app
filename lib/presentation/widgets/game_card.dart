@@ -5,13 +5,25 @@ class GameCard extends StatelessWidget {
   final Game game;
   const GameCard({super.key, required this.game });
 
+  void _navigateToDetails(BuildContext context) {
+    Navigator.of(context).pushNamed('/details');
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(game.name),
-      decoration: BoxDecoration(
-        color: Colors.red,
-        borderRadius: BorderRadius.all(Radius.circular(12)),
+    return GestureDetector(
+      onTap: (){
+        _navigateToDetails(context);
+      },
+        child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          image: DecorationImage(
+            image: NetworkImage(game.image),
+            fit: BoxFit.cover 
+          )
+        ),
       ),
     );
   }
